@@ -42,7 +42,6 @@ void Get_Polynom(Polynom& tmp)
 	t2.prep();
 	std::cout << "Your monom is:" << " " << t2 << std::endl;
 	tmp = t2;
-	wait();
 }
 
 
@@ -98,17 +97,6 @@ void PrintAll()
 	wait();
 }
 
-void Find()
-{
-	std::string name;
-	std::cout << "Input name:";
-	std::cin >> name;
-	for (int i = 0; i < 3; ++i)
-	{
-		std::cout<<Tables[i]->find(name)<<"\n";
-	}
-	wait();
-}
 
 void Actions_with_polynom()
 {
@@ -165,7 +153,7 @@ int main()
 	while (1)
 	{
 		system("cls");
-		std::cout << "1.Add\n2.Erase\n3.Print\n4.PrintAll\n5.find\n6.Action with polynom\n";
+		std::cout << "1.Add\n2.Erase\n3.Print\n4.PrintAll\n5.Action with polynom\nAnother symbol=Exit";
 		int option; std::cin >> option;
 		if (option == 1)
 		{
@@ -188,11 +176,6 @@ int main()
 			continue;
 		}
 		if (option == 5)
-		{
-			Find();
-			continue;
-		}
-		if (option == 6)
 		{
 			Actions_with_polynom();
 			continue;

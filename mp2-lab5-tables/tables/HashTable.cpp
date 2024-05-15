@@ -37,8 +37,12 @@ void HashTable::erase(std::string name)
 {
 	int key = GetHash(name);
 	LinkElem* head = table[key];
-	if (head == 0) return;
 	int op = 1;
+	if (head == 0)
+	{
+		backlog(op);
+		return;
+	}
 	if (head->name == name)
 	{
 		LinkElem* snd = head->next;
@@ -80,7 +84,7 @@ std::pair<bool,int> HashTable::PrintLink(LinkElem* tmp,std::string& name)
 	if (tmp == 0) return { 0,0 };
 	if (tmp->name == name)
 	{
-		std::cout << name << " " << tmp->polynom<<"\n";
+		std::cout << name << ": " << tmp->polynom<<"\n";
 		return { 1,1 };
 	}
 	std::pair<bool, int> ttmp = PrintLink(tmp->next, name);
@@ -92,7 +96,7 @@ void HashTable::print(std::string name)
 	int key = GetHash(name);
 	auto op = PrintLink(table[key], name);
 	if (!op.first)
-		std::cout << "Element doesn't exist";
+		std::cout << "Element doesn't exist\n";
 	backlog(op.second? op.second :1);
 }
 

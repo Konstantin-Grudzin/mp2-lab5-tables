@@ -36,12 +36,12 @@ void UnorderedTable::print(std::string name)
 	{
 		if (table[i].name == name)
 		{
-			std::cout << table[i].name << " " << table[i].polynom;
+			std::cout << table[i].name << ": " << table[i].polynom<<"\n";
 			backlog(i + 1);
 			return;
 		}
 	}
-	std::cout << "This element doesn't exist!";
+	std::cout << "This element doesn't exist\n";
 	backlog(i+1);
 }
 

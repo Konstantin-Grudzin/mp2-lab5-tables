@@ -38,6 +38,10 @@ class Polynom
 	void destroy_duplicates();
 	void delete_zeros();
 	void sort();
+	Node<Monom>* GetHead()
+	{
+		return polynom.head();
+	}
 
 public:
 
@@ -59,10 +63,7 @@ public:
 	Polynom operator*(Polynom& p2);
 	Polynom operator*(double c);
 
-	Node<Monom>* GetHead()
-	{
-		return polynom.head();
-	}
+	
 
 	friend std::ostream& operator<<(std::ostream& os, Polynom& p);
 };

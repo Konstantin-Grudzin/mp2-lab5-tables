@@ -11,6 +11,7 @@ struct Elementt
 class UnorderedTable :public virtual Table
 {
 private:
+	std::string name_of_table = "UnorderedTable";
 	std::vector<Elementt> table;
 public:
 	void add(std::string name, Polynom val) override;
@@ -20,5 +21,9 @@ public:
 	void print_all() override;
 	Polynom get_polynom(std::string name) override;
 	bool find(std::string name) override;
+	std::string GetName() override
+	{
+		return name_of_table;
+	}
 };
 

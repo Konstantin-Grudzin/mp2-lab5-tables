@@ -53,7 +53,7 @@ void OrderedTable::erase(std::string name)
 	int pos = tmp.first, op = tmp.second;
 	if (pos == -1 || table[pos].name != name)
 	{
-		std::cout << "\nIt took " << op << " operations\n";
+		backlog(op);
 		return;
 	}
 	else
@@ -67,7 +67,7 @@ void OrderedTable::erase(std::string name)
 			}
 		}
 		table.assign(begin(new_table), end(new_table));
-		std::cout << "\nIt took " << table.size() + op + 1 << " operations\n";
+		backlog(table.size() + op + 1);
 	}
 }
 

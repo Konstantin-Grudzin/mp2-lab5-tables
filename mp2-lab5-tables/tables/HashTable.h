@@ -21,7 +21,9 @@ struct LinkElem
 // по умолчанию - 1000
 class HashTable : public virtual Table
 {
+
 private:
+	std::string name_of_table="HashTable";
 	int size;
 	std::vector<LinkElem*> table;
 	int GetHash(std::string& name);
@@ -44,5 +46,9 @@ public:
 	void print_all() override;
 	Polynom get_polynom(std::string name) override;
 	bool find(std::string name) override;
+	std::string GetName() override
+	{
+		return name_of_table;
+	}
 };
 
